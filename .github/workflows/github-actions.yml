@@ -1,7 +1,11 @@
 # This workflow will help you to produce an HTML extra test results report
 
 name: Newman Tests
-on: [push, pull_request]
+on:
+#triggers workflow
+schedule:
+#schedule UTC:
+- cron : '15 12,13 * * *'
 
 jobs:
   test-api:
