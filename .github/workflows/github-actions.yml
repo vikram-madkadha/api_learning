@@ -29,8 +29,7 @@ jobs:
         
    # Run the POSTMAN collection
       - name: Run API Tests
-        run: newman run "Postman Echo.postman_collection.json" -e "Environment One.postman_environment.json" -r htmlextra --reporter-htmlextra-export testResults/htmlreport.html || true
-
+        run: newman run "Postman Echo.postman_collection.json" --environment "Environment One.postman_environment.json" -r cli, slack --reporter-slack-channel '#automation' --reporter-slack-webhook-url "https://hooks.slack.com/services/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" htmlextra --reporter-htmlextra-export testResults/htmlreport.html || true
     # Upload the contents of Test Results directory to workspace
       - name: Output the run Details
         uses: actions/upload-artifact@v2
